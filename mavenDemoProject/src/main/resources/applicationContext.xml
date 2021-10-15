@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  
+ <bean id="empBean" class="mavenDemoProject.Employee">
+  <constructor-arg type="String" value="Subham" />
+    <constructor-arg  ref="laptopDevice1" /> <!-- Constructor injection -->
+  <property name="empID" value="abc" />
+  <property name ="laptopDevice1" ref="laptopDevice1"/> <!-- dependency injection -->
+ </bean>
+  <bean id="empBean1" class="mavenDemoProject.Employee" autowire="constructor">
+  <constructor-arg  value="Abhinav"  />
+  <property name="empID" value="xyz" />
+  
+ </bean>
+ <bean id ="laptopDevice1" class ="mavenDemoProject.Device">
+ <property name ="type" value ="laptop"/>
+ <property name ="modelNum" value ="LT345"/>
+ </bean>
+</beans>
